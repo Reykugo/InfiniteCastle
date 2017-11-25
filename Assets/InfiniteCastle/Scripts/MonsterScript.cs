@@ -6,30 +6,28 @@ using UnityEngine.AI;
 public class MonsterScript : HumanoidScript {
 
 	[SerializeField]
-	protected Transform[] Destination;
+	private Transform[] Destination;
 
-	protected Animator animator;
+	private  Animator animator;
 
 	private NavMeshAgent agent;
 
 	private bool moveOnPLayer = false;
 	private Transform player;
 
-	[SerializeField]
-	protected int AttackDamage;
+    private MakeAttackScript[] attackScripts;
 
-	protected virtual void OnTriggerEnter(Collider c){
+	void OnTriggerEnter(Collider c){
 		if (c.tag == "Player") {
+            moveOnPLayer = true;
 			player = c.transform;
-			agent.enabled = true;
 		}
 	}
 
-	protected virtual void OnTriggerExit(Collider c){
+	void OnTriggerExit(Collider c){
 		if (c.tag == "Player") {
 			moveOnPLayer = false;
 			player = null;
-			agent.enabled = false;
 		}
 	}
 
@@ -40,17 +38,24 @@ public class MonsterScript : HumanoidScript {
 		agent = GetComponent<NavMeshAgent> ();
 		int r = Random.Range (0, Destination.Length);
 		agent.destination = Destination[r].position;
-	}
+        attackScripts = this.GetComponentsInChildren<MakeAttackScript>();
+        animator.SetBool("canMove", true); 
+    }
 
 
 	public override void GetDamage(int damage){
 		base.GetDamage (damage);
-		animator.SetInteger ("pv", Pv);
 		//GetComponent<Animator> ().SetInteger("Pv", Pv);
 		if (Pv <= 0) {
+            animator.SetBool("isDie", true);
 			GetComponent<BoxCollider> ().enabled = false;
 			agent.enabled = false;
 			Destroy (this);
+            foreach( MakeAttackScript script in attackScripts)
+            {
+                Destroy(script);
+            }
+            
 		}
 
 	}
@@ -68,5 +73,4 @@ public class MonsterScript : HumanoidScript {
 		}
 	}
 
-	//tster les differents positions
 }

@@ -1,24 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HumanoidScript : MonoBehaviour {
 
-	private int pv;
+    public int Pv;
 
+    public int AttackDamage;
 
-	public int Pv{get{return pv;}}
+    public float AttackFrequency;
 
-	private int attackDamage;
-
-	public int AttackDamage{get{return attackDamage;}}
+    public RectTransform healthBar;
 
 	void Start(){
-		attackDamage = AttackDamage;
-		pv = Pv; 
+
 	}
 	public virtual void GetDamage(int damage){
-		pv -= damage;
+		Pv -= damage;
+        healthBar.sizeDelta = new Vector2(Pv, healthBar.sizeDelta.y);
 	}
 
 
