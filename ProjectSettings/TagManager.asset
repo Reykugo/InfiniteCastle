@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GrowingSphere
   - monster
+  - monsterHitBox
   layers:
   - Default
   - TransparentFX

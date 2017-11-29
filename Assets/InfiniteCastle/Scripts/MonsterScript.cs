@@ -12,24 +12,10 @@ public class MonsterScript : HumanoidScript {
 
 	private NavMeshAgent agent;
 
-	private bool moveOnPLayer = false;
-	private Transform player;
+	public bool MoveOnPlayer = false;
+	public Transform Player;
 
     private MakeAttackScript[] attackScripts;
-
-	void OnTriggerEnter(Collider c){
-		if (c.tag == "Player") {
-            moveOnPLayer = true;
-			player = c.transform;
-		}
-	}
-
-	void OnTriggerExit(Collider c){
-		if (c.tag == "Player") {
-			moveOnPLayer = false;
-			player = null;
-		}
-	}
 
 
 	// Use this for initialization
@@ -64,12 +50,12 @@ public class MonsterScript : HumanoidScript {
 
 	// Update is called once per frame
 	void Update () {
-		if (agent.remainingDistance <= 5 && moveOnPLayer == false) {
+		if (agent.remainingDistance <= 5 && MoveOnPlayer == false) {
 			int r = Random.Range (0, Destination.Length);
 			agent.destination = Destination[r].position;
 		} 
-		else if (moveOnPLayer == true) {
-			agent.destination = player.position;
+		else if (MoveOnPlayer == true) {
+			agent.destination = Player.position;
 		}
 	}
 
