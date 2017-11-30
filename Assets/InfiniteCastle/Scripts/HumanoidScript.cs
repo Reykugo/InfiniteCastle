@@ -5,22 +5,34 @@ using UnityEngine.UI;
 
 public class HumanoidScript : MonoBehaviour {
 
-    public int Pv;
+    protected int Pv;
 
+    public int PvMax;
     public int AttackDamage;
 
     public float AttackFrequency;
 
     public RectTransform healthBar;
 
-	void Start(){
+    private GameObject[] healthCanvas;
 
-	}
-	public virtual void GetDamage(int damage){
+    protected virtual void Start()
+    {
+        Pv = PvMax;
+    }
+
+    public virtual void GetDamage(int damage){
 		Pv -= damage;
-        healthBar.sizeDelta = new Vector2(Pv, healthBar.sizeDelta.y);
+        float factor = ((float)Pv) / ((float)PvMax);
+        //healthBar.sizeDelta = new Vector2(Pv, healthBar.sizeDelta.y);
+        healthBar.localScale = new Vector3(factor, 1, 1);
+        if (Pv <= 0)
+        {
+            Destroy(healthBar.parent.parent);
+        }
 	}
 
+    
 
 
 }

@@ -8,24 +8,31 @@ public class MonsterScript : HumanoidScript {
 	[SerializeField]
 	private Transform[] Destination;
 
-	private  Animator animator;
+    
+    public string AttackAnimationName;
+
+    public Transform Player;
+
+    private  Animator animator;
 
 	private NavMeshAgent agent;
 
 	public bool MoveOnPlayer = false;
-	public Transform Player;
+	
 
     private MakeAttackScript[] attackScripts;
 
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+        base.Start();
+
 		animator = GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent> ();
 		int r = Random.Range (0, Destination.Length);
 		agent.destination = Destination[r].position;
         attackScripts = this.GetComponentsInChildren<MakeAttackScript>();
-        animator.SetBool("canMove", true); 
+        animator.SetBool("canMove", true);
     }
 
 
@@ -45,8 +52,6 @@ public class MonsterScript : HumanoidScript {
 		}
 
 	}
-
-
 
 	// Update is called once per frame
 	void Update () {

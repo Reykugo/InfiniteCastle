@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerScript : HumanoidScript
 {
@@ -14,14 +15,22 @@ public class PlayerScript : HumanoidScript
     [SerializeField]
     private Collider weaponsCollider;
 
+    [SerializeField]
+    private GameObject HelpMenu;
+
     private Animator animator;
 
     private bool shield;
 
     private bool isDead = false;
 
-    private void Start()
+    private Vector3 oldPosition;
+
+    private bool canAttack = true;
+
+    protected override void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
     }
 
@@ -47,7 +56,7 @@ public class PlayerScript : HumanoidScript
             }
         }
 
-        if (Input.GetMouseButton(1)) {
+        if (Input.GetMouseButton(1) && !weaponsCollider.enabled) {
             Shield.SetActive(true);
             shield = true;
         }
@@ -58,16 +67,17 @@ public class PlayerScript : HumanoidScript
             shield = false;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)  && canAttack && !shield)
         {
             weaponsCollider.enabled = true;
             animator.SetTrigger("canAttack");
+            canAttack = false;
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Footman_Attack_Return")) {
             weaponsCollider.enabled = false;
+            canAttack = true;
         }
-
 
     }
 

@@ -30,7 +30,7 @@ public class WeaponsScript : MonoBehaviour
             if (script)
             {
                 script.GetDamage(Dammage);
-                /*collider.enabled = false;*/
+                collider.enabled = false;
             }
         }
         
