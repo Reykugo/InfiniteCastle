@@ -1820,9 +1820,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608073982674038}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 386.0808, y: -0.02, z: 118.8964}
-  m_LocalScale: {x: 2.3826122, y: 2.3826118, z: 2.3826118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 193.09456, y: 161.80373, z: -37.919853}
+  m_LocalScale: {x: 2.2158294, y: 2.215829, z: 2.215829}
   m_Children:
   - {fileID: 4658783036790766}
   - {fileID: 4571208808021236}
@@ -2930,13 +2930,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PvMax: 90
   AttackDamage: 30
-  AttackFrequency: 6
+  AttackFrequency: 3
   healthBar: {fileID: 224565088062397298}
+  healthCanvas: {fileID: 1224984237589076}
   Destination:
   - {fileID: 4149583507628872}
   - {fileID: 4854919830052766}
-  MoveOnPlayer: 0
+  MoveMode: random
+  AttackAnimationName: creature1Attack1
   Player: {fileID: 0}
+  MoveOnPlayer: 0
 --- !u!114 &114665407475776012
 MonoBehaviour:
   m_ObjectHideFlags: 1

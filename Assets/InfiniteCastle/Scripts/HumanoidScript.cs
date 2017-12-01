@@ -14,7 +14,8 @@ public class HumanoidScript : MonoBehaviour {
 
     public RectTransform healthBar;
 
-    private GameObject[] healthCanvas;
+    [SerializeField]
+    private GameObject healthCanvas;
 
     protected virtual void Start()
     {
@@ -28,7 +29,7 @@ public class HumanoidScript : MonoBehaviour {
         healthBar.localScale = new Vector3(factor, 1, 1);
         if (Pv <= 0)
         {
-            Destroy(healthBar.parent.parent);
+            Destroy(healthCanvas,2);
         }
 	}
 

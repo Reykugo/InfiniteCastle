@@ -1982,15 +1982,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PvMax: 50
   AttackDamage: 10
-  AttackFrequency: 3
+  AttackFrequency: 1.5
   healthBar: {fileID: 224850828418035496}
   Destination:
   - {fileID: 4390995865012960}
   - {fileID: 4535854679753104}
   - {fileID: 4877775992247272}
   - {fileID: 4596134975187658}
-  MoveOnPlayer: 0
+  MoveMode: random
+  AttackAnimationName: attack
   Player: {fileID: 0}
+  MoveOnPlayer: 0
 --- !u!114 &114197353410310630
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,6 +9,10 @@ public class MonsterScript : HumanoidScript {
 	[SerializeField]
 	private Transform[] Destination;
 
+    [SerializeField]
+    private string MoveMode;
+
+    private Transform currentDestination;
     
     public string AttackAnimationName;
 
@@ -22,6 +27,9 @@ public class MonsterScript : HumanoidScript {
 
     private MakeAttackScript[] attackScripts;
 
+    private float baseSpeed;
+
+    private GameObject gameManager;
 
 	// Use this for initialization
 	protected override void Start () {
@@ -29,10 +37,11 @@ public class MonsterScript : HumanoidScript {
 
 		animator = GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent> ();
-		int r = Random.Range (0, Destination.Length);
-		agent.destination = Destination[r].position;
+        SelectMoveByMode(MoveMode);
         attackScripts = this.GetComponentsInChildren<MakeAttackScript>();
         animator.SetBool("canMove", true);
+        baseSpeed = agent.speed;
+        gameManager = GameObject.Find("GameManager");
     }
 
 
@@ -48,20 +57,50 @@ public class MonsterScript : HumanoidScript {
             {
                 Destroy(script);
             }
+            gameManager.GetComponent<GameManagerScript>().MonsterHasBeenKilled(this.gameObject);
             
 		}
-
 	}
+
+    private void SelectMoveByMode(string mode)
+    {
+        int r = 0;
+        if (mode == "random")
+        {
+            r = UnityEngine.Random.Range(0, Destination.Length);
+        }
+        else if(mode == "next")
+        {
+            int currentIndex = Array.IndexOf(Destination, currentDestination);
+            
+            if(currentIndex < Destination.Length)
+            {
+               r = currentIndex + 1;
+            }
+        }
+
+        agent.destination = Destination[r].position;
+    }
 
 	// Update is called once per frame
 	void Update () {
 		if (agent.remainingDistance <= 5 && MoveOnPlayer == false) {
-			int r = Random.Range (0, Destination.Length);
-			agent.destination = Destination[r].position;
+            SelectMoveByMode(MoveMode);
 		} 
 		else if (MoveOnPlayer == true) {
 			agent.destination = Player.position;
+            /*if (agent.remainingDistance <= 8)
+            {
+                agent.speed = 0;
+                animator.SetBool("canMove", false);
+            }
+            else
+            {
+                agent.speed = baseSpeed;
+                animator.SetBool("canMove", true);
+            }*/
 		}
+
 	}
 
 }
