@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 869aaf01ac5151b40a1bd0012fff62ea
+timeCreated: 1512248958
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BadHandwriter
+  fontNames:
+  - BadHandwriter
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

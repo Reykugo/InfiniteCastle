@@ -1558,7 +1558,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621662616516724}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.87, z: 1.073}
+  m_LocalPosition: {x: 0, y: 0.87, z: 1.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4245289350239818}
@@ -1822,7 +1822,7 @@ Transform:
   m_GameObject: {fileID: 1608073982674038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 193.09456, y: 161.80373, z: -37.919853}
-  m_LocalScale: {x: 2.2158294, y: 2.215829, z: 2.215829}
+  m_LocalScale: {x: 1.9980483, y: 1.9980478, z: 1.9980478}
   m_Children:
   - {fileID: 4658783036790766}
   - {fileID: 4571208808021236}
@@ -2838,8 +2838,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.042932, z: 1.216892}
-  m_Center: {x: 0, y: 1.4885627, z: 0.108446494}
+  m_Size: {x: 1.7332463, y: 3.042932, z: 1.6405084}
+  m_Center: {x: 0.16324538, y: 1.4885626, z: 0.11901535}
 --- !u!95 &95609321891299516
 Animator:
   serializedVersion: 3
@@ -2928,7 +2928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d935538f04ccfe4bab743731de5e0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PvMax: 90
+  PvMax: 50
   AttackDamage: 30
   AttackFrequency: 3
   healthBar: {fileID: 224565088062397298}
@@ -3037,6 +3037,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3052,6 +3053,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3219,7 +3221,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224984237589076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.0999985, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 224240131358034664}
@@ -3238,7 +3240,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1399178524883470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -50.00036, y: -0.000071525574, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224240131358034664}

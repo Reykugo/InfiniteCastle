@@ -5,7 +5,7 @@ public class WeaponsScript : MonoBehaviour
 {
 
     [SerializeField]
-    private int Dammage;
+    PlayerScript player;
 
     private Collider collider;
 
@@ -29,7 +29,7 @@ public class WeaponsScript : MonoBehaviour
             HumanoidScript script = c.GetComponent<HumanoidScript>();
             if (script)
             {
-                script.GetDamage(Dammage);
+                script.GetDamage(player.AttackDamage);
                 collider.enabled = false;
             }
         }

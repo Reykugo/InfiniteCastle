@@ -77,29 +77,39 @@ public class MonsterScript : HumanoidScript {
             {
                r = currentIndex + 1;
             }
+            else
+            {
+                r = 0;
+            }
         }
-
+        currentDestination = Destination[r];
         agent.destination = Destination[r].position;
     }
 
 	// Update is called once per frame
 	void Update () {
-		if (agent.remainingDistance <= 5 && MoveOnPlayer == false) {
+		if (agent.remainingDistance <= 5 && !MoveOnPlayer) {
             SelectMoveByMode(MoveMode);
 		} 
-		else if (MoveOnPlayer == true) {
-			agent.destination = Player.position;
-            /*if (agent.remainingDistance <= 8)
+		else if (MoveOnPlayer) {
+            agent.destination = Player.position;
+            /*if (agent.remainingDistance <= 7)
             {
-                agent.speed = 0;
-                animator.SetBool("canMove", false);
+                agent.speed = baseSpeed/2;
+                //animator.SetBool("canMove", false);
             }
             else
             {
                 agent.speed = baseSpeed;
-                animator.SetBool("canMove", true);
+                //animator.SetBool("canMove", true);
             }*/
 		}
+
+        else if(!MoveOnPlayer && Pv < PvMax)
+        {
+            Pv += Time.deltaTime * 5;
+            UpdateHealthBar();
+        }
 
 	}
 

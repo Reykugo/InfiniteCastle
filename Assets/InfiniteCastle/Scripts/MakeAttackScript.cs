@@ -82,7 +82,7 @@ public class MakeAttackScript : MonoBehaviour {
     public void Attack() {
         animator.SetBool("canWalk", false);
         int attackDamage = transform.parent.GetComponent<HumanoidScript>().AttackDamage;
-        monsterScript.Player.GetComponent<HumanoidScript>().GetDamage(attackDamage);
+        monsterScript.Player.GetComponent<PlayerScript>().GetDamage(attackDamage);
     }
 
 }

@@ -1939,8 +1939,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.5589447, y: 2.5727286, z: 3.9717407}
-  m_Center: {x: -0.27533722, y: 0.7863643, z: 0.46157837}
+  m_Size: {x: 4.5589447, y: 2.572729, z: 3.175618}
+  m_Center: {x: -0.2753372, y: 0.7863643, z: 0.06351497}
 --- !u!95 &95241034342664016
 Animator:
   serializedVersion: 3
@@ -1980,10 +1980,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d935538f04ccfe4bab743731de5e0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PvMax: 50
+  PvMax: 30
   AttackDamage: 10
   AttackFrequency: 1.5
   healthBar: {fileID: 224850828418035496}
+  healthCanvas: {fileID: 1467475443732284}
   Destination:
   - {fileID: 4390995865012960}
   - {fileID: 4535854679753104}
@@ -2139,6 +2140,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2154,6 +2156,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2290,7 +2293,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467475443732284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.2000008, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 224699859009426294}
@@ -2328,7 +2331,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1311554520476336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 50.00049, y: -0.000023841858, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224699859009426294}
