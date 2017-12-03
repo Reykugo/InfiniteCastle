@@ -37,6 +37,7 @@ public class MonsterScript : HumanoidScript {
 
 		animator = GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent> ();
+
         SelectMoveByMode(MoveMode);
         attackScripts = this.GetComponentsInChildren<MakeAttackScript>();
         animator.SetBool("canMove", true);
@@ -52,14 +53,14 @@ public class MonsterScript : HumanoidScript {
             animator.SetBool("isDie", true);
 			GetComponent<BoxCollider> ().enabled = false;
 			agent.enabled = false;
-			Destroy (this);
             foreach( MakeAttackScript script in attackScripts)
             {
                 Destroy(script);
             }
             gameManager.GetComponent<GameManagerScript>().MonsterHasBeenKilled(this.gameObject);
-            
-		}
+            Destroy(this);
+
+        }
 	}
 
     private void SelectMoveByMode(string mode)
@@ -71,9 +72,17 @@ public class MonsterScript : HumanoidScript {
         }
         else if(mode == "next")
         {
-            int currentIndex = Array.IndexOf(Destination, currentDestination);
+            int currentIndex = 0;
+            if (currentDestination)
+            {
+                currentIndex = Array.IndexOf(Destination, currentDestination);
+            }
+            else
+            {
+                currentIndex = 0;
+            }
             
-            if(currentIndex < Destination.Length)
+            if(currentIndex < Destination.Length -1)
             {
                r = currentIndex + 1;
             }

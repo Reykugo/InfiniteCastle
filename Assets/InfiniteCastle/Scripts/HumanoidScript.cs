@@ -41,9 +41,13 @@ public class HumanoidScript : MonoBehaviour {
 
     protected void UpdateHealthBar()
     {
-        float factor = Pv / PvMax;
-        //healthBar.sizeDelta = new Vector2(Pv, healthBar.sizeDelta.y);
-        healthBar.localScale = new Vector3(factor, 1, 1);
+        if (healthCanvas)
+        {
+            float factor = Pv / PvMax;
+            //healthBar.sizeDelta = new Vector2(Pv, healthBar.sizeDelta.y);
+            healthBar.localScale = new Vector3(factor, 1, 1);
+        }
+        
     }
 
 

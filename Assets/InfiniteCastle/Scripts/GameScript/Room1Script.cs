@@ -8,9 +8,7 @@ public class Room1Script : RoomScript
         base.MonsterHasBeenKilled(monster);
         if (Monsters.Count == 0)
         {
-            Finish();
-            DoorToNextLevel.GetComponent<SphereCollider>().enabled = true;
-            
+            Finish();            
         }
     }
 }

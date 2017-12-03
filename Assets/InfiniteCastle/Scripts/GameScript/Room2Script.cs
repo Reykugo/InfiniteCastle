@@ -8,7 +8,6 @@ public class Room2Script : RoomScript
         base.ObjectFinded(obj);
         if(ObjectsToFind.Count == 0)
         {
-            DoorToNextLevel.GetComponent<SphereCollider>().enabled = true;
             Finish();
         }
     }

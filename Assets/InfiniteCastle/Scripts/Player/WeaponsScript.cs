@@ -33,8 +33,5 @@ public class WeaponsScript : MonoBehaviour
                 collider.enabled = false;
             }
         }
-        
-
-        //Destroy(gameObject);
     }
 }

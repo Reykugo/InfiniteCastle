@@ -53,6 +53,8 @@ public class BlackSmithScript : MonoBehaviour
                         inventoryScript.RemoveItem(ironBar);
                         key.SetActive(true);
                         gameManager.GetComponent<GameManagerScript>().ObjectFinded(key);
+                        playerHaveHammer = false;
+                        playerHaveIronBar = false;
 
                     }
                 }

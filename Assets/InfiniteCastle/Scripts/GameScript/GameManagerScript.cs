@@ -12,12 +12,31 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     private GameObject[] Rooms;
 
+    [SerializeField]
+    private GameObject InGamePanel;
+
+    [SerializeField]
+    private GameObject DiedPanel;
+
+    [SerializeField]
+    private GameObject VictoryPanel;
+
+    [SerializeField]
+    private GameObject Player;
+
+    [SerializeField]
+    private GameObject Boss;
+
     public int currentRoom = 0;
+
+    private PlayerScript playerScript;
+    private BossScript bossScript;
 
     // Use this for initialization
     void Start()
     {
-
+        playerScript = Player.GetComponent<PlayerScript>();
+        bossScript = Boss.GetComponent<BossScript>();
     }
 
     // Update is called once per frame
@@ -25,6 +44,20 @@ public class GameManagerScript : MonoBehaviour
     {
         ShowElementsWhenInactive();
     }
+
+    public void PlayerWin()
+    {
+        InGamePanel.SetActive(false);
+        VictoryPanel.SetActive(true);
+    }
+
+    public void PlayerDied()
+    {
+        InGamePanel.SetActive(false);
+        DiedPanel.SetActive(true);
+    }
+
+
 
 
     void ShowElementsWhenInactive()

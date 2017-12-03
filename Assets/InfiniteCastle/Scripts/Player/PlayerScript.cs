@@ -8,10 +8,6 @@ public class PlayerScript : HumanoidScript
 {
 
     [SerializeField]
-    private GameObject GameOverText;
-
-
-    [SerializeField]
     private Collider weaponsCollider;
 
     [SerializeField]
@@ -63,9 +59,9 @@ public class PlayerScript : HumanoidScript
 
         if (Pv <= 0)
         {
-            GameOverText.SetActive(true);
             isDead = true;
             Destroy(transform.GetComponent<CharacterControls>());
+            GameObject.Find("GameManager").GetComponent<GameManagerScript>().PlayerDied();
         }
 
     }

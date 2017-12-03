@@ -38,12 +38,13 @@ public class PlayerInventoryScript : MonoBehaviour
         GameObject itemToRemove;
         foreach( GameObject item in Items)
         {
-          if(item.name == itemName)
+            if(item.name == itemName)
             {
                 Items.Remove(item);
                 UpdateText();
+                break;
             }
-            break;
+            
             
         }
         
